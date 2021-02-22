@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta lang="ja">
+        <title>Covid Info Japan</title>
+    </head>
+
+    <body>
+        {% if positive %}
+            <h1>Yesterday's num of positive ones is {{positive}}.</h1>
+        {% else %}
+            <h1>Cannnot gather data.</h1>
+        {% endif %}
+    </body>
+</html>
