@@ -4,13 +4,45 @@
         <meta charset="utf-8">
         <meta lang="ja">
         <title>Covid Info Japan</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
     </head>
 
     <body>
-        {% if positive %}
-            <h1>Yesterday's num of positive ones is {{positive}}.</h1>
-        {% else %}
-            <h1>Cannnot gather data.</h1>
-        {% endif %}
+        <section class="hero is-primary">
+            <div class="hero-body">
+                <p class="title">
+                    新型コロナウィルス感染者情報
+                </p>
+            </div>
+        </section>
+
+        <div class="block">
+            <div class="notification is-warning">
+                <div class="title">注意</div>
+                個人的にプログラミングの練習をしたくて、このサイトを立てました。
+                情報が正確でない可能性があります。
+            </div>
+        </div>
+
+        <article class="message is-link">
+            <div class="message-header">
+                <p>昨日({{date}})の感染者数</p>
+            </div>
+            
+            <div class="message-body">
+                <p>{{positive}}人</p>
+            </div>
+        </article>
+
+        <article class="message">
+            <div class="message-header">
+                <p>昨日({{date}})の死者数</p>
+            </div>
+
+            <div class="message-body">
+                <p>{{death}}人</p>
+            </div>
+        </article>
     </body>
 </html>
