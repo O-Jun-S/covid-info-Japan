@@ -6,4 +6,4 @@ RUN pip install flask
 RUN pip install requests
 RUN pip install pandas
 RUN pip install Flask-APScheduler
-ENV FLASK_APP=main.py
+ENV FLASK_APP=app.py
