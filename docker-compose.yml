@@ -6,4 +6,4 @@ services:
       - 80:80
     environment:
       - FLASK_APP=/workspace/app.py
-    command: python3 main.py
+    command: python3 app.py
