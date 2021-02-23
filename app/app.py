@@ -2,6 +2,10 @@ from flask import Flask
 from flask import render_template
 from flask_apscheduler import APScheduler
 
+import sys
+
+sys.path.append("./covid_data/")
+
 from .covid_data.get_positive_data import GetPositiveData
 from .covid_data.get_death_data import GetDeathData
 from .covid_data.get_pcr_data import GetPcrData
