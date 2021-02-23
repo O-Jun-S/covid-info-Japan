@@ -31,6 +31,9 @@ get_pcr_data = GetPcrData()
 get_patient_data = GetPatientData()
 
 @scheduler.task('interval', id='write_data', hours=2)
+def wrapped_write_data():
+    write_data()
+
 def write_data():
     get_positive_data.get_data()
     get_positive_data.write_data()
@@ -60,4 +63,5 @@ def index():
         )
 
 if __name__ == '__main__':
+    write_data()
     app.run(debug=True, host="0.0.0.0", port=80)
