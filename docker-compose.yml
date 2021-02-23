@@ -2,8 +2,6 @@ version: "3"
 services:
   web:
     build: .
-    volumes:
-      - ./app:/workspace
     ports:
       - 80:80
     environment:
