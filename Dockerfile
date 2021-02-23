@@ -7,4 +7,4 @@ RUN pip install requests
 RUN pip install pandas
 RUN pip install Flask-APScheduler
 ENV FLASK_APP=/workspace/app.py
-COPY app/* /workspace
+COPY app/* /workspace/
