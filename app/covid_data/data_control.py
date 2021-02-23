@@ -13,17 +13,18 @@ PATIENT_CSV_FILE = "patient_data.csv"
 
 class DataControl:
     def __init__(self):
-        self.positive_data = pandas.read_csv(POSITIVE_CSV_FILE)
-        self.death_data = pandas.read_csv(DEATH_CSV_FILE)
-        self.pcr_data = pandas.read_csv(PCR_CSV_FILE)
-        self.patient_data = pandas.read_csv(PATIENT_CSV_FILE)
+        self.positive_data = pandas.read_csv(POSITIVE_CSV_FILE, encoding="shift_jis")
+        self.death_data = pandas.read_csv(DEATH_CSV_FILE, encoding="shift_jis")
+        self.pcr_data = pandas.read_csv(PCR_CSV_FILE, encoding="shift_jis")
+        self.patient_data = pandas.read_csv(PATIENT_CSV_FILE, encoding="shift_jis")
         self.the_day = None
         self.the_day_key = None
         self.update_date()
     
     def update_date(self):
         self.the_day = datetime.now(JST) - timedelta(days=1)
-        self.the_day_key = self.the_day.strftime("%Y/%-m/%-d")
+        self.the_day_key = f"{self.the_day.year}/{self.the_day.month}/{self.the_day.day}"
+        print(self.the_day_key)
     
     def get_positive_data(self):
         return int(self.positive_data[self.positive_data["日付"] == self.the_day_key]["PCR 検査陽性者数(単日)"])
@@ -39,5 +40,6 @@ class DataControl:
         return pcr_num
     
     def get_patient_data(self):
+        print(self.patient_data)
         patient_num = int(self.patient_data[self.patient_data["日付"] == self.the_day_key]["入院治療を要する者"])
         return patient_num

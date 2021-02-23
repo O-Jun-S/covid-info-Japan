@@ -15,3 +15,8 @@ class GetPatientData:
     def write_data(self):
         with open(CSV_FILE, "w") as f:
             f.write(self.data)
+
+if __name__ == "__main__":
+    get_patient_data = GetPatientData()
+    get_patient_data.get_data()
+    get_patient_data.write_data()

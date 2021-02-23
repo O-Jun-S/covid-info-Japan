@@ -15,3 +15,8 @@ class GetPcrData:
     def write_data(self):
         with open(CSV_FILE, "w") as f:
             f.write(self.data)
+
+if __name__ == "__main__":
+    get_pcr_data = GetPcrData()
+    get_pcr_data.get_data()
+    get_pcr_data.write_data()
