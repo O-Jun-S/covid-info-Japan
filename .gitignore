@@ -4,3 +4,4 @@ settings.json
 config.py
 objectdb
 .vscode
+heroku_env
