@@ -1,14 +1,13 @@
 import requests
 
+ENDPOINT = "https://www.mhlw.go.jp/content/death_total.csv"
+CSV_FILE = "death_data.csv"
 
-ENDPOINT = "https://www.mhlw.go.jp/content/pcr_positive_daily.csv"
-CSV_FILE = "positive_data.csv"
 
-
-class GetPositiveData:
+class GetDeathData:
     def __init__(self):
         self.data = ""
-    
+
     def get_data(self):
         res = requests.get(ENDPOINT)
         res.encoding = res.apparent_encoding
@@ -20,6 +19,6 @@ class GetPositiveData:
 
 
 if __name__ == "__main__":
-    get_positive_data = GetPositiveData()
-    get_positive_data.get_data()
-    get_positive_data.write_data()
+    get_death_data = GetDeathData()
+    get_death_data.get_data()
+    get_death_data.write_data()

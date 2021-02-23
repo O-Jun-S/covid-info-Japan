@@ -18,31 +18,69 @@
         </section>
 
         <div class="block">
-            <div class="notification is-warning">
+            <div class="notification">
                 <div class="title">注意</div>
                 個人的にプログラミングの練習をしたくて、このサイトを立てました。
-                情報が正確でない可能性があります。
+                データは<a href="https://www.mhlw.go.jp/stf/covid-19/open-data.html">厚生労働省</a>によるものです。
             </div>
         </div>
 
-        <article class="message is-link">
-            <div class="message-header">
-                <p>昨日({{date}})の感染者数</p>
-            </div>
-            
-            <div class="message-body">
-                <p>{{positive}}人</p>
-            </div>
-        </article>
+        <div class="tile is-ancestor">
+            <div class="tile is-vertical">
+                <div class="tile is-parent">
+                    <div class="tile">
+                        <article class="message is-danger is-large">
+                            <div class="message-header">
+                                <p>{{date}}の感染者数</p>
+                            </div>
+                            
+                            <div class="message-body">
+                                <p>{{positive}}人</p>
+                            </div>
+                        </article>
+                    </div>
 
-        <article class="message">
-            <div class="message-header">
-                <p>昨日({{date}})の死者数</p>
+                    <div class="tile">
+                        <article class="message is-link is-large">
+                            <div class="message-header">
+                                <p>{{date}}のPCR検査数</p>
+                            </div>
+                            
+                            <div class="message-body">
+                                <p>{{pcr}}件</p>
+                            </div>
+                        </article>
+                    </div>
+                </div>
             </div>
 
-            <div class="message-body">
-                <p>{{death}}人</p>
+            <div class="tile is-vertical">
+                <div class="tile is-parent">
+                    <div class="tile">
+                        <article class="message is-large">
+                            <div class="message-header">
+                                <p>{{date}}の死者数</p>
+                            </div>
+
+                            <div class="message-body">
+                                <p>{{death}}人</p>
+                            </div>
+                        </article>
+                    </div>
+
+                    <div class="tile">
+                        <article class="message is-warning is-large">
+                            <div class="message-header">
+                                <p>{{date}}の入院治療を要する患者数</p>
+                            </div>
+                            
+                            <div class="message-body">
+                                <p>{{patient}}人</p>
+                            </div>
+                        </article>
+                    </div>
+                </div>
             </div>
-        </article>
+        </div>
     </body>
 </html>
