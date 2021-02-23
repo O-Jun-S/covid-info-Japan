@@ -30,7 +30,7 @@ get_death_data = GetDeathData()
 get_pcr_data = GetPcrData()
 get_patient_data = GetPatientData()
 
-@scheduler.task('interval', id='write_data', hours=2)
+@scheduler.task('interval', id='write_data', hours=24)
 def wrapped_write_data():
     write_data()
 
