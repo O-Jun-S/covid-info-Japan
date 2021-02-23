@@ -5,10 +5,10 @@ from datetime import timezone
 
 JST = timezone(timedelta(hours=+9), 'JST')
 
-POSITIVE_CSV_FILE = "positive_data.csv"
-DEATH_CSV_FILE = "death_data.csv"
-PCR_CSV_FILE = "pcr_data.csv"
-PATIENT_CSV_FILE = "patient_data.csv"
+POSITIVE_CSV_FILE = "covid_data/positive_data.csv"
+DEATH_CSV_FILE = "covid_data/death_data.csv"
+PCR_CSV_FILE = "covid_data/pcr_data.csv"
+PATIENT_CSV_FILE = "covid_data/patient_data.csv"
 
 
 class DataControl:
@@ -43,3 +43,10 @@ class DataControl:
     def get_patient_data(self):
         patient_num = int(self.patient_data[self.patient_data["日付"] == self.the_day_key]["入院治療を要する者"])
         return patient_num
+
+if __name__ == "__main__":
+    dc = DataControl()
+    print(dc.get_death_data())
+    print(dc.get_patient_data())
+    print(dc.get_positive_data())
+    print(dc.get_pcr_data())
