@@ -2,6 +2,8 @@ from flask import Flask
 from flask import render_template
 from flask_apscheduler import APScheduler
 
+import os
+
 from covid_data.get_positive_data import GetPositiveData
 from covid_data.get_death_data import GetDeathData
 from covid_data.get_pcr_data import GetPcrData
@@ -58,4 +60,4 @@ def index():
         )
 
 if __name__ == '__main__':
-    app.run(debug=False, host="0.0.0.0", port=5000)
+    app.run(debug=False, host="0.0.0.0", port=os.getenv("PORT"))
