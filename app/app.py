@@ -32,7 +32,7 @@ get_patient_data = GetPatientData()
 
 data_control = DataControl()
 
-@sched.scheduled_job('cron', id='write_data', hour="18")
+@scheduler.scheduled_job('cron', id='write_data', hour="18")
 def fixed_job():
     data_control.update_date()
     write_data()
