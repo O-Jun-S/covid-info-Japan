@@ -32,7 +32,7 @@ get_patient_data = GetPatientData()
 
 data_control = DataControl()
 
-#@scheduler.task('cron', id='write_data', hour="18")
+@scheduler.task('cron', id='write_data', hour="18")
 def fixed_job():
     data_control.update_date()
     write_data()
@@ -46,6 +46,9 @@ def write_data():
     get_pcr_data.write_data()
     get_patient_data.get_data()
     get_patient_data.write_data()
+
+
+write_data()
 
 
 @app.route("/")
@@ -64,5 +67,4 @@ def index():
         )
 
 if __name__ == '__main__':
-    write_data()
     app.run(debug=True, host="0.0.0.0", port=80)
