@@ -57,6 +57,7 @@ def index():
     death = data_control.get_death_data()
     pcr = data_control.get_pcr_data()
     patient = data_control.get_patient_data()
+
     return render_template(
         "index.html",
         date=data_control.the_day_key,

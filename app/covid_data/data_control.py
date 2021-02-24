@@ -22,7 +22,7 @@ class DataControl:
         self.update_date()
     
     def update_date(self):
-        self.the_day = datetime.now(JST) - timedelta(days=1)
+        self.the_day = datetime.now(JST) - timedelta(days=2)
         self.the_day_key = f"{self.the_day.year}/{self.the_day.month}/{self.the_day.day}"
     
     def get_positive_data(self):
