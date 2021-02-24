@@ -30,8 +30,11 @@ get_death_data = GetDeathData()
 get_pcr_data = GetPcrData()
 get_patient_data = GetPatientData()
 
-@scheduler.task('interval', id='write_data', hours=24)
-def wrapped_write_data():
+data_control = DataControl()
+
+@sched.scheduled_job('cron', id='write_data', hour="18")
+def fixed_job():
+    data_control.update_date()
     write_data()
 
 def write_data():
@@ -47,8 +50,6 @@ def write_data():
 
 @app.route("/")
 def index():
-    data_control = DataControl()
-
     positive = data_control.get_positive_data()
     death = data_control.get_death_data()
     pcr = data_control.get_pcr_data()
